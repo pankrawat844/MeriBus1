@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/meri_bus_bg"
+    tools:context="paztechnologies.com.meribus.MainActivity">
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"/>
+
+
+    <paztechnologies.com.meribus.font.MyTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MERI BUS"
+        android:textColor="@color/apptheme"
+        android:textSize="@dimen/title"
+
+        android:layout_centerInParent="true" />
+
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:layout_below="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#605959"
+
+        android:textSize="@dimen/title_below"
+        android:text="ON DEMAND TEXI APP"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/apptheme"
+        android:padding="15dp"
+        android:weightSum="2"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+        <paztechnologies.com.meribus.font.MyTextView_Lato
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+
+            android:textColor="#ffffff"
+            android:textSize="@dimen/title_below"
+            android:text="Sign In"/>
+
+</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+
+            >
+        <paztechnologies.com.meribus.font.MyTextView_Lato
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+           android:layout_centerInParent="true"
+            android:textSize="@dimen/title_below"
+            android:text="Register"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_centerHorizontal="true"
+        android:textColor="#605959"
+        android:layout_marginBottom="10dp"
+        android:text="All Copyright Reserved By Meri Bus"/>
+</RelativeLayout>

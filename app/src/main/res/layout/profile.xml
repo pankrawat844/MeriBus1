@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_alignParentTop="true"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eeeeee"
+          >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/basic_info_layout"
+    android:background="@android:color/white">
+    <TextView
+        android:id="@+id/upload_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="Basic Information"/>
+            <EditText
+                android:layout_below="@+id/upload_profile"
+                android:id="@+id/activity_register_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_outline"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/activity_register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_register_username"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/input_outline"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/activity_phone_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_register_email"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/input_outline"
+                android:hint="Mobile No"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/activity_residence_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_phone_no"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/input_outline"
+                android:hint="Residential Address (Max limit:400)"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/activity_office_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activity_residence_add"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/input_outline"
+                android:hint="Office Address (Max limit:400)"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="16dp"
+                android:textSize="12dp" />
+    <RadioGroup
+        android:id="@+id/radio_grp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/activity_office_add"
+        >
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FeMale"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/update_profile"
+        android:layout_below="@+id/radio_grp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_office_add"
+        android:background="@drawable/custom_edittext"
+        android:textColor="#ffffff"
+
+        android:text="Update"/>
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="10dp"
+    android:layout_below="@+id/update_profile"/>
+</RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/document_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/basic_info_layout"
+                android:layout_margin="10dp"
+                android:background="#ffffff">
+                <TextView
+                    android:id="@+id/upload_doc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="16dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Upload Doucments"/>
+                <TextView
+                    android:layout_below="@+id/upload_doc"
+                    android:id="@+id/upload_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:hint="Upload Image"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:padding="5dp"
+                    android:textSize="15dp" />
+                <Button
+                    android:id="@+id/upload_btn"
+                    android:layout_below="@+id/upload_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Choose File"/>
+                <Button
+                    android:id="@+id/update_btn"
+                    android:layout_below="@+id/upload_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/upload_btn"
+                    android:layout_alignLeft="@+id/upload_btn"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="#ffffff"
+
+                    android:text="Update"/>
+
+                <TextView
+                    android:id="@+id/upload_address_proof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/update_btn"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:hint="*Address Proof"
+                    android:inputType="textPersonName"
+
+                    android:maxLines="1"
+                    android:padding="5dp"
+                    android:textSize="15dp" />
+                <Button
+                    android:id="@+id/upload_adrprf_btn"
+                    android:layout_below="@+id/upload_address_proof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Choose File"/>
+                <Button
+                    android:id="@+id/update_adrprf_btn"
+                    android:layout_below="@+id/upload_adrprf_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/upload_btn"
+                    android:layout_alignLeft="@+id/upload_btn"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="#ffffff"
+
+                    android:text="Update"/>
+                <TextView
+                    android:id="@+id/upload_id_proof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/update_adrprf_btn"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:hint="*Id Proof"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:padding="5dp"
+                    android:textSize="15dp" />
+                <Button
+                    android:id="@+id/upload_idprf_btn"
+                    android:layout_below="@+id/upload_id_proof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Choose File"/>
+
+                <Button
+                    android:id="@+id/update_idprfdate_btn"
+                    android:layout_below="@+id/upload_idprf_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/upload_btn"
+                    android:layout_alignLeft="@+id/upload_btn"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="#ffffff"
+                    android:text="Update"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@+id/update_idprfdate_btn"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@+id/document_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#ffffff">
+                <TextView
+                    android:id="@+id/change_pass_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Change Password"/>
+                <EditText
+                    android:id="@+id/activity_old_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/change_pass_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_outline"
+                    android:hint="Old Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="12dp" />
+                <EditText
+                    android:id="@+id/activity_new_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/activity_old_pass"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/input_outline"
+                    android:hint="New Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="12dp" />
+                <EditText
+                    android:id="@+id/activity_cnf_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/activity_new_pass"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/input_outline"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/update_pass_btn"
+                    android:layout_below="@+id/activity_cnf_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/activity_cnf_pass"
+                    android:background="@drawable/custom_edittext"
+                    android:textColor="#ffffff"
+                    android:text="Change Password"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@+id/update_pass_btn"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

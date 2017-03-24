@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MeriBus</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="film_genres">Film genres</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="username_error">Please enter user name</string>
+    <string name="email_error">Please enter email address</string>
+    <string name="email_error1">Please enter correct email address</string>
+
+    <string name="phno_error">Please enter phone no.</string>
+    <string name="password_error">Please enter password</string>
+    <string name="address_error">Please enter address</string>
+
+    <string-array name="drawer">
+        <item>My Account</item>
+        <item>New Booking</item>
+        <item>Track My Bus/Car</item>
+        <item>Privacy Policy</item>
+        <item>Partners/Clients</item>
+        <item>Careers</item>
+        <item>LogOut</item>
+    </string-array>
+</resources>

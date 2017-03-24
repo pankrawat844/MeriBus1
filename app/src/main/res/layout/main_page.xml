@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/log_bg"
+    >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:fitsSystemWindows="false"
+    >
+<EditText
+    android:layout_marginTop="20dp"
+
+    android:id="@+id/current_location"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:backgroundTint="@color/textcolor"
+    android:drawableLeft="@mipmap/m_location"
+    android:hint="My Location..."
+    android:padding="10dp"
+    android:drawablePadding="5dp"
+    android:textSize="17dp"
+    android:textColorHint="@color/textcolor"/>
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+
+        android:id="@+id/des_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/textcolor"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/current_location"
+        android:hint="Destination..."
+        android:padding="10dp"
+        android:drawableLeft="@mipmap/destination_icon"
+        android:textColorHint="@color/textcolor"></EditText>
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+
+        android:id="@+id/activity_phone_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/textcolor"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/des_location"
+        android:hint="Phone no"
+        android:padding="10dp"
+        android:drawableLeft="@mipmap/phone"
+        android:textColorHint="@color/textcolor"></EditText>
+
+    <RelativeLayout
+        android:id="@+id/two_way_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:layout_below="@+id/activity_phone_no"
+        android:background="@color/textcolor">
+
+        <ImageView
+            android:id="@+id/two_way"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/two_way"/>
+
+        <ToggleButton
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:textOff=""
+                android:textOn=""
+                android:checked="false"
+
+                android:background="@drawable/two_way_toggle"
+                android:layout_alignParentRight="true"/>
+
+        <paztechnologies.com.meribus.font.MyTextView_Lato
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Two Directions"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_centerVertical="true"
+
+            android:layout_alignTop="@+id/two_way"
+            android:layout_toRightOf="@+id/two_way"
+            android:layout_toEndOf="@+id/two_way" />
+    </RelativeLayout>
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+
+        android:id="@+id/start_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#f3d02a"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/two_way_layout"
+        android:hint="Start Date"
+        android:padding="10dp"
+        android:drawableLeft="@mipmap/date_icon"
+        android:textColorHint="@color/textcolor"></paztechnologies.com.meribus.font.MyTextView_Lato>
+
+<RelativeLayout
+    android:id="@+id/start_end_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/start_date"
+    android:layout_marginTop="10dp"
+
+    >
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:textSize="17dp"
+
+        android:hint="Start Shift Time"
+        android:drawablePadding="5dp"
+        android:padding="10dp"
+        android:textColorHint="@color/textcolor"
+        android:drawableLeft="@mipmap/clock_icon"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/round"
+        android:layout_centerInParent="true"
+        />
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:id="@+id/end_time"
+        android:textSize="17dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:hint="End Shift Time"
+        android:drawablePadding="5dp"
+        android:padding="10dp"
+        android:textColorHint="@color/textcolor"
+        android:drawableLeft="@mipmap/clock_icon"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/textcolor"
+        android:layout_alignParentBottom="true"></View>
+</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/select_ride_layout"
+        android:layout_below="@+id/start_end_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/textcolor">
+
+<paztechnologies.com.meribus.font.MyTextView_Lato
+    android:id="@+id/select_any_ride"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Select Any Ride"
+    android:textSize="17dp"
+    android:layout_marginTop="10dp"
+    android:textStyle="bold"
+
+    android:layout_alignParentTop="true"/>
+<RelativeLayout
+    android:layout_below="@+id/select_any_ride"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:weightSum="3">
+        <ToggleButton
+            android:id="@+id/nonac_toggle"
+            android:background="@drawable/nonac_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn=""
+            android:textOff=""
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+
+            />
+
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:id="@+id/non_ac_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-Ac Bus"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/nonac_toggle"
+        android:layout_below="@+id/nonac_toggle"/>
+    <ToggleButton
+        android:id="@+id/ac_toggle"
+        android:layout_weight="1"
+        android:background="@drawable/ac_toggle"
+        android:layout_alignTop="@+id/nonac_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn=""
+        android:textOff=""
+        android:layout_centerInParent="true"
+        />
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:id="@+id/ac_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ac Bus"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/ac_toggle"
+        android:layout_below="@+id/ac_toggle"/>
+    <ToggleButton
+        android:id="@+id/e_riksha_toggle"
+        android:layout_weight="1"
+        android:background="@drawable/e_riksha_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn=""
+        android:textOff=""
+
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+
+        />
+
+    <paztechnologies.com.meribus.font.MyTextView_Lato
+        android:id="@+id/e_riksha_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-Riksha"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/e_riksha_toggle"
+        android:layout_below="@+id/e_riksha_toggle"/>
+</RelativeLayout>
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/submit"
+        android:layout_below="@+id/select_ride_layout"
+        android:layout_marginTop="20dp"
+        android:text="Place Your Ride"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="18dp"
+        android:background="@drawable/select_ride_custom"/>
+</RelativeLayout>
+</ScrollView>
