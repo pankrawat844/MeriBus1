@@ -33,5 +33,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services:10.0.1'
     compile 'com.basgeekball:awesome-validation:2.0'
-
+    compile 'com.github.rey5137:material:1.2.4'
+    compile 'com.akexorcist:googledirectionlibrary:1.0.4'
+    compile 'com.android.volley:volley:1.0.0'
 }

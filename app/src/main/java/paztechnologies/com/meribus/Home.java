@@ -29,12 +29,13 @@ import paztechnologies.com.meribus.navigation.ExpandableListadapter;
 import paztechnologies.com.meribus.navigation.ExpandedMenuModel;
 
 public class Home extends AppCompatActivity {
-    private DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
     Toolbar toolbar;
+    private DrawerLayout mDrawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +103,18 @@ public class Home extends AppCompatActivity {
 
                     mDrawerLayout.closeDrawers();
 
+                } else if (listDataHeader.get(i).getIconName().equals("New Booking")) {
+                    My_Booking book = new My_Booking();
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.container, book);
+                    ft.commit();
+                    mDrawerLayout.closeDrawers();
+                } else if (listDataHeader.get(i).getIconName().equals("Track My Bus/Car")) {
+                    Track_Bus book = new Track_Bus();
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.container, book);
+                    ft.commit();
+                    mDrawerLayout.closeDrawers();
                 }
                 return false;
             }
@@ -143,17 +156,17 @@ public class Home extends AppCompatActivity {
         listDataHeader = new ArrayList<ExpandedMenuModel>();
         listDataChild = new HashMap<ExpandedMenuModel, List<String>>();
 
-        ExpandedMenuModel item1 = new ExpandedMenuModel();
-        item1.setIconName("My Account");
-        item1.setIconImg(R.drawable.profile);
-        // Adding data header
-        listDataHeader.add(item1);
+
 
         ExpandedMenuModel item2 = new ExpandedMenuModel();
         item2.setIconName("New Booking");
         item2.setIconImg(R.drawable.booking);
         listDataHeader.add(item2);
-
+        ExpandedMenuModel item1 = new ExpandedMenuModel();
+        item1.setIconName("My Account");
+        item1.setIconImg(R.drawable.profile);
+        // Adding data header
+        listDataHeader.add(item1);
         ExpandedMenuModel item3 = new ExpandedMenuModel();
         item3.setIconName("Track My Bus/Car");
         item3.setIconImg(R.drawable.location);
@@ -190,8 +203,8 @@ public class Home extends AppCompatActivity {
         heading2.add("Cancellations & Refunds");
         heading2.add("FAQS");
 
-        listDataChild.put(listDataHeader.get(1), heading1);// Header, Child data
-        listDataChild.put(listDataHeader.get(3), heading2);
+//        listDataChild.put(listDataHeader.get(1), heading1);// Header, Child data
+//        listDataChild.put(listDataHeader.get(3), heading2);
 
     }
 

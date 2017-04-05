@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.rey.material.widget.Spinner;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,39 +41,32 @@ import java.util.List;
  */
 
 public class Main_page extends Fragment {
-    EditText current_location;
+    Spinner current_location;
+    Button place_ride;
+    String[] current_loc_arr = {"Delhi", "Gurgaon"};
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.main_page,container,false);
         init(view);
 
+        place_ride.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Ride_Detail ride_detail = new Ride_Detail();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, ride_detail).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         current_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // findPlace(v);
+                // findPlace(v);
             }
         });
-        current_location.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(!current_location.isInEditMode()){
-                    LatLng latLng=getLocationFromAddress(getActivity(),current_location.getText().toString());
-                    Toast.makeText(getActivity(),"latitude"+latLng.latitude,3).show();
-                }
-            }
-        });
         return view;
     }
 
@@ -126,7 +121,7 @@ public class Main_page extends Fragment {
             if (resultCode == Activity.RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(getActivity(), data);
                 Log.i("TAG", "Place: " + place.getName());
-                current_location.setText(place.getAddress());
+                //    current_location.setText(place.getAddress());
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(getActivity(), data);
                 // TODO: Handle the error.
@@ -139,8 +134,10 @@ public class Main_page extends Fragment {
     }
 
     void init(View v){
-        current_location=(EditText)v.findViewById(R.id.current_location);
-
+        current_location = (Spinner) v.findViewById(R.id.current_location);
+        place_ride = (Button) v.findViewById(R.id.submit);
+        ArrayAdapter<String> current_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, current_loc_arr);
+        current_location.setAdapter(new NothingSelectedSpinnerAdapter(current_adapter, R.layout.nothing_selected_drop_point, getActivity()));
     }
 
 
