@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class Book_Monthly extends Fragment {
+public class Book_Per_Day extends Fragment {
     ArrayAdapter<CharSequence> shift_start_time;
     private String[] start_time_arr={"10:00AM","11:00AM","8:00AM","8:30AM","9:00AM"};
     private String[] end_time_arr={"5:00PM","6:00PM","7:00PM","8:00PM"};

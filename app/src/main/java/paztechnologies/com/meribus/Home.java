@@ -1,16 +1,23 @@
 package paztechnologies.com.meribus;
 
-import android.app.ActionBar;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +25,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -34,6 +42,7 @@ public class Home extends AppCompatActivity {
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
     Toolbar toolbar;
+    ImageView navigation;
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -42,12 +51,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        final android.support.v7.app.ActionBar ab = getSupportActionBar();
+        //   final android.support.v7.app.ActionBar ab = getSupportActionBar();
         /* to set the menu icon image*/
+        navigation = (ImageView) findViewById(R.id.navigaion);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-     //   ab.setHomeAsUpIndicator(android.R.drawable.ic_menu_add);
-//        ab.setDisplayHomeAsUpEnabled(true);
+
         setSupportActionBar(toolbar);
+        final ActionBar ab = getSupportActionBar();
+        // ab.setHomeAsUpIndicator(R.mipmap.toggel);
+        //  ab.setDisplayHomeAsUpEnabled(true);
+        // ab.setBackgroundDrawable(null);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         expandableList = (ExpandableListView) findViewById(R.id.navigationmenu);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -55,7 +68,12 @@ public class Home extends AppCompatActivity {
         if (navigationView != null) {
             setupDrawerContent(navigationView);
         }
-
+        navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(GravityCompat.END);
+            }
+        });
         prepareListData();
         mMenuAdapter = new ExpandableListadapter(this, listDataHeader, listDataChild, expandableList);
 
@@ -115,6 +133,15 @@ public class Home extends AppCompatActivity {
                     ft.replace(R.id.container, book);
                     ft.commit();
                     mDrawerLayout.closeDrawers();
+                } else if (listDataHeader.get(i).getIconName().equals("Log Out")) {
+                    SharedPreferences sharedPreferences = getSharedPreferences("app", 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.clear();
+                    editor.commit();
+                    mDrawerLayout.closeDrawers();
+                    Intent in = new Intent(Home.this, Login.class);
+                    startActivity(in);
+                    finish();
                 }
                 return false;
             }
@@ -126,7 +153,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+        android.support.v7.app.ActionBarDrawerToggle actionBarDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -139,14 +166,32 @@ public class Home extends AppCompatActivity {
                 // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
                 super.onDrawerOpened(drawerView);
             }
+
+
         };
 
+
+        //   actionBarDrawerToggle.setDrawerIndicatorEnabled(false);
+
+//        Drawable drawable = ResourcesCompat.getDrawable(getResources(),   R.mipmap.toggel, getTheme());
+//
+//        actionBarDrawerToggle.setHomeAsUpIndicator(drawable);
+//        actionBarDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mDrawerLayout.isDrawerVisible(Gravity.RIGHT)) {
+//                    mDrawerLayout.closeDrawer(Gravity.RIGHT);
+//                } else {
+//                    mDrawerLayout.openDrawer(Gravity.RIGHT);
+//                }
+//            }
+//        });
         //Setting the actionbarToggle to drawer layout
-        mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
+        //  mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         //calling sync state is necessary or else your hamburger icon wont show up
-        actionBarDrawerToggle.syncState();
-        Main_page main_page= new Main_page();
+        // actionBarDrawerToggle.syncState();
+        Booking_Tab main_page= new Booking_Tab();
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container,main_page);
         fragmentTransaction.commit();
@@ -213,15 +258,6 @@ public class Home extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void setupDrawerContent(NavigationView navigationView) {
         //revision: this don't works, use setOnChildClickListener() and setOnGroupClickListener() above instead

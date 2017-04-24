@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.akexorcist.googledirection.DirectionCallback;
@@ -40,15 +41,18 @@ public class Ride_Detail extends Fragment implements OnMapReadyCallback, View.On
     private LatLng camera = new LatLng(28.6158851, 77.0406466);
     private LatLng curr = new LatLng(28.6158851, 77.0406466);
     private LatLng des = new LatLng(28.6168968, 77.0459028);
-
+    private Button payment;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ride_detail, container, false);
+        View view = inflater.inflate(R.layout.ride_detail2, container, false);
         MapsInitializer.initialize(this.getActivity());
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
+        payment = (Button) view.findViewById(R.id.submit);
         mapFragment.getMapAsync(this);
+        payment.setOnClickListener(this);
+
         //        if (google == null) {
 //            FragmentManager fragmentManager = getFragmentManager();
 //            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -62,7 +66,13 @@ public class Ride_Detail extends Fragment implements OnMapReadyCallback, View.On
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.submit:
+                Payment payment = new Payment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.container, payment);
+                ft.commit();
+        }
     }
 
     @Override
