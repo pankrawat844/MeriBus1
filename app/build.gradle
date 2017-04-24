@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,21 +20,32 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases' }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.basgeekball:awesome-validation:2.0'
     compile 'com.squareup:android-times-square:1.6.5'
-    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:design:25.3.0'
     compile 'com.tuyenmonkey:mkloader:1.0.0'
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.basgeekball:awesome-validation:2.0'
-    testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services:10.0.1'
-    compile 'com.basgeekball:awesome-validation:2.0'
     compile 'com.github.rey5137:material:1.2.4'
     compile 'com.akexorcist:googledirectionlibrary:1.0.4'
     compile 'com.android.volley:volley:1.0.0'
+    compile 'com.payu.india:payu-sdk:4.3.9'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.google.android.gms:play-services-auth:10.0.1'
+    compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.google.code.ksoap2-android:ksoap2-android:3.1.1'
+    testCompile 'junit:junit:4.12'
 }
+
+
+apply plugin: 'com.google.gms.google-services'

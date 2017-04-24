@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/log_bg"
+    android:background="@drawable/logbg"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -21,7 +21,7 @@
             android:layout_alignParentTop="true"
             tools:context="com.googlemap.googlemap.MapsActivity"></fragment>
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/current_location_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/current_location"
 
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/des_location_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
 
             android:id="@+id/des_location"
             android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/distance_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
 
             android:id="@+id/distance"
             android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/charge_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
 
             android:id="@+id/charge"
             android:layout_width="wrap_content"
@@ -139,7 +139,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:id="@+id/time_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
             android:textSize="17dp"
             app:backgroundTint="@color/textcolor" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
 
             android:id="@+id/time"
             android:layout_width="wrap_content"

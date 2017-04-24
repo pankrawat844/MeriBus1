@@ -10,7 +10,9 @@
     <color name="editTextOutlineColor">#dcf41a</color>
     <color name="textcolor">#f3d02a</color>
     <color name="textcolor1">#2f92ed</color>
-    <color name="textcolor2">#2f92ed</color>
+    <color name="textcolor2">#ffffff</color>
+    <color name="lightgrey">#b4a7a7</color>
+    <color name="text">#545454</color>
 
     <color name="apptheme">#d01616</color>
 </resources>

@@ -44,7 +44,7 @@ public class MyNotificationManager {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx);
         Notification notification;
         notification = builder.setSmallIcon(R.drawable.logo).setTicker(title).setWhen(0).setAutoCancel(true)
-                .setContentIntent(resulPendingIntent).setStyle(bigPictureStyle).setSmallIcon(R.drawable.logo).setLargeIcon(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.logo)).setContentText(msg).build();
+                .setContentIntent(resulPendingIntent).setStyle(bigPictureStyle).setLargeIcon(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.logo)).setContentText(msg).build();
 
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
         NotificationManager notificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -59,7 +59,7 @@ public class MyNotificationManager {
     public void showSmallNotification(String title, String msg, Intent intent) {
         PendingIntent pendingIntent = PendingIntent.getActivity(ctx, ID_SMALL_NOTIFICATION, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx);
-        Notification notification = builder.setSmallIcon(R.drawable.logo).setWhen(0).setAutoCancel(true)
+        Notification notification = builder.setSmallIcon(R.drawable.logo).setWhen(0).setAutoCancel(true).setContentTitle(title)
                 .setContentIntent(pendingIntent).setLargeIcon(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.logo))
                 .setContentText(msg).build();
         notification.flags |= Notification.FLAG_AUTO_CANCEL;

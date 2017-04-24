@@ -8,5 +8,9 @@
     <dimen name="layout_padding_default">10dp</dimen>
     <dimen name="title">55dp</dimen>
     <dimen name="title_below">25dp</dimen>
+    <dimen name="text">15dp</dimen>
+    <dimen name="sub_text">10dp</dimen>
+    <dimen name="distance_text">28dp</dimen>
+    <dimen name="distance">18dp</dimen>
 
 </resources>

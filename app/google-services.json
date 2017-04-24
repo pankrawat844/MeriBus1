@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1052387759727",
+    "firebase_url": "https://meri-bus.firebaseio.com",
+    "project_id": "meri-bus",
+    "storage_bucket": "meri-bus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052387759727:android:8dadf51ae5b93d86",
+        "android_client_info": {
+          "package_name": "paztechnologies.com.meribus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052387759727-cglu2d9mh0gujddt0q26q3cd41mckcl2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "paztechnologies.com.meribus",
+            "certificate_hash": "bb7efeb95b1b6524b0e24e369c33544afd4a80cb"
+          }
+        },
+        {
+          "client_id": "1052387759727-rein3r73jn7j1qu2gtukeercuptsvq34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAidYST2i9pHLIbzHAowM_vF47TdiXUYnY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052387759727-rein3r73jn7j1qu2gtukeercuptsvq34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

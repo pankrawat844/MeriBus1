@@ -1,26 +1,26 @@
-package paztechnologies.com.meribus.font;
+package custom_font;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.EditText;
 
 /**
  * Created by one on 3/12/15.
  */
-public class MyTextView_Lato extends TextView {
+public class MyEditText extends EditText {
 
-    public MyTextView_Lato(Context context, AttributeSet attrs, int defStyle) {
+    public MyEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
-    public MyTextView_Lato(Context context, AttributeSet attrs) {
+    public MyEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public MyTextView_Lato(Context context) {
+    public MyEditText(Context context) {
         super(context);
         init();
     }

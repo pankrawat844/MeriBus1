@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/log_bg"
+    android:background="@drawable/logbg"
     android:orientation="vertical"
 
     >
@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
     android:drawableLeft="@mipmap/m_location"
     android:drawablePadding="5dp"
-        android:hint="My Location..."
+        android:hint="PickUp Point"
         android:padding="20dp"
         android:textColorHint="@color/textcolor2"
     android:textSize="17dp"
@@ -36,22 +36,31 @@
         android:layout_height="3dp"
         android:layout_alignBottom="@+id/current_location"
         android:layout_marginBottom="20dp"
-        android:background="@color/textcolor1" />
-    <EditText
-        android:id="@+id/des_location"
-        android:layout_width="match_parent"
+        android:background="@color/textcolor" />
 
+    <com.rey.material.widget.Spinner
+        android:id="@+id/des_location"
+        style="@style/Material.Widget.Spinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/current_location"
         android:layout_marginTop="20dp"
         android:drawableLeft="@mipmap/destination_icon"
         android:drawablePadding="5dp"
-        android:hint="Destination..."
-        android:padding="10dp"
-        android:textColorHint="@color/textcolor"
+        android:hint="Drop Point"
+        android:padding="20dp"
+        android:textColorHint="@color/textcolor2"
         android:textSize="17dp"
-        app:backgroundTint="@color/textcolor"></EditText>
+        app:backgroundTint="@color/textcolor"
 
+        app:rd_style="@style/Material.Drawable.Ripple.Wave"></com.rey.material.widget.Spinner>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignBottom="@+id/des_location"
+        android:layout_marginBottom="20dp"
+        android:background="@color/textcolor" />
     <EditText
         android:id="@+id/activity_phone_no"
         android:layout_width="match_parent"
@@ -63,7 +72,7 @@
         android:drawablePadding="5dp"
         android:hint="Phone no"
         android:padding="10dp"
-        android:textColorHint="@color/textcolor"
+        android:textColorHint="@color/textcolor2"
         android:textSize="17dp"
         app:backgroundTint="@color/textcolor"></EditText>
 
@@ -96,19 +105,20 @@
             android:textOff=""
             android:textOn="" />
 
-        <paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/two_way"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/two_way"
             android:layout_toRightOf="@+id/two_way"
-
             android:text="Two Directions"
+            android:textColor="@color/textcolor2"
             android:textSize="18dp"
             android:textStyle="bold" />
     </RelativeLayout>
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:id="@+id/start_date"
         android:layout_width="match_parent"
 
@@ -119,9 +129,9 @@
         android:drawablePadding="5dp"
         android:hint="Start Date"
         android:padding="10dp"
-        android:textColorHint="@color/textcolor"
+        android:textColorHint="@color/textcolor2"
         android:textSize="17dp"
-        app:backgroundTint="#f3d02a"></paztechnologies.com.meribus.font.MyTextView_Lato>
+        app:backgroundTint="#f3d02a"></paztechnologies.com.meribus.custom_font.MyTextView_Lato>
 
 <RelativeLayout
     android:id="@+id/start_end_layout"
@@ -131,7 +141,8 @@
     android:layout_marginTop="10dp"
 
     >
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -140,7 +151,7 @@
         android:drawablePadding="5dp"
         android:hint="Start Shift Time"
         android:padding="10dp"
-        android:textColorHint="@color/textcolor"
+        android:textColorHint="@color/textcolor2"
         android:textSize="17dp" />
     <ImageView
         android:layout_width="wrap_content"
@@ -148,7 +159,8 @@
         android:layout_centerInParent="true"
         android:src="@mipmap/round"
         />
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:id="@+id/end_time"
         android:layout_width="wrap_content"
 
@@ -158,7 +170,7 @@
         android:drawablePadding="5dp"
         android:hint="End Shift Time"
         android:padding="10dp"
-        android:textColorHint="@color/textcolor"
+        android:textColorHint="@color/textcolor2"
         android:textSize="17dp" />
     <View
         android:layout_width="match_parent"
@@ -190,7 +202,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/textcolor1">
 
-<paztechnologies.com.meribus.font.MyTextView_Lato
+        <paztechnologies.com.meribus.custom_font.MyTextView_Lato
     android:id="@+id/select_any_ride"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -219,7 +231,7 @@
 
             />
 
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:id="@+id/non_ac_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -239,7 +251,8 @@
         android:textOff=""
         android:textOn=""
         />
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:id="@+id/ac_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -263,7 +276,7 @@
 
         />
 
-    <paztechnologies.com.meribus.font.MyTextView_Lato
+    <paztechnologies.com.meribus.custom_font.MyTextView_Lato
         android:id="@+id/e_riksha_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
