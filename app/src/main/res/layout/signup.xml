@@ -114,13 +114,14 @@
             />
 
         <ImageView
+            android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/send"
-            android:layout_marginRight="10dp"
             android:layout_alignBottom="@+id/activity_residence_add"
-            android:layout_alignTop="@+id/activity_residence_add"/>
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/activity_residence_add"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/send" />
         <EditText
             android:id="@+id/activity_office_add"
             android:layout_width="match_parent"

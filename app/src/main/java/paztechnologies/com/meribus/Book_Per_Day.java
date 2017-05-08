@@ -11,13 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class Book_Per_Day extends Fragment {
+
     ArrayAdapter<CharSequence> shift_start_time;
+    Spinner shift_start_time_spinner, shift_end_time_spinner, select_route_spinner, pickup_spinner, drop_spinner;
     private String[] start_time_arr={"10:00AM","11:00AM","8:00AM","8:30AM","9:00AM"};
     private String[] end_time_arr={"5:00PM","6:00PM","7:00PM","8:00PM"};
     private String[] select_route_arr={"Anand Vihar to Cyber City GGN","Avantika to Cyber City GGN","Badarpur to Cyber  city GGN","Burari to Cyber City GGN","Dilshad Garden to Cyber City GGN","Indirapuram to Cyber City "};
     private String[] pickup_arr={"Cyber City Gurgaon","Shankar Chowk/cyber city","Park centra","Signature tower","Iffco chowk","Airtel footover bridge"};
     private String[] drop_arr={"Cyber City Gurgaon","Shankar Chowk/cyber city","Park centra","Signature tower","Iffco chowk","Airtel footover bridge"};
-    Spinner shift_start_time_spinner,shift_end_time_spinner,select_route_spinner,pickup_spinner,drop_spinner;
 
     @Nullable
     @Override

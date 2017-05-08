@@ -18,39 +18,41 @@
         >
 
         <RadioGroup
+            android:id="@+id/radio_grp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radio_grp"
-            android:weightSum="3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <RadioButton
+                android:id="@+id/both"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/both"
                 android:layout_weight="1"
                 android:checked="true"
+                android:text="Both"
                 android:textColor="#ffffff"
-                app:buttonTint="@color/background"
-                android:text="Both"/>
+                app:buttonTint="@color/background" />
             <RadioButton
+                android:id="@+id/drop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/drop"
-                app:buttonTint="@color/background"
+                android:text="Drop"
                 android:textColor="#ffffff"
-                android:text="Drop"/>
+                app:buttonTint="@color/background" />
             <RadioButton
 
+                android:id="@+id/pickup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:buttonTint="@color/background"
+                android:text="Pickup"
                 android:textColor="#ffffff"
-                android:id="@+id/pickup"
-                android:text="Pickup"/>
+                app:buttonTint="@color/background" />
         </RadioGroup>
 
         <RelativeLayout
@@ -109,16 +111,16 @@
                 android:id="@+id/start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:drawableLeft="@mipmap/clock_icon"
                 android:layout_alignLeft="@+id/img"
-                app:backgroundTint="@color/textcolor1"
-                android:drawablePadding="15dp"
+                android:layout_alignParentLeft="true"
                 android:layout_marginTop="10dp"
-
+                android:drawableLeft="@mipmap/clock_icon"
+                android:drawablePadding="15dp"
                 android:padding="10dp"
+
                 android:textColorHint="@color/textcolor2"
-                android:textSize="17dp" />
+                android:textSize="17dp"
+                app:backgroundTint="@color/textcolor1" />
             <ImageView
                 android:id="@+id/img"
                 android:layout_width="wrap_content"
@@ -130,16 +132,16 @@
             <Spinner
                 android:id="@+id/end_time"
                 android:layout_width="wrap_content"
-                android:layout_toRightOf="@+id/img"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/textcolor1"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/img"
                 android:drawableLeft="@mipmap/clock_icon"
                 android:drawablePadding="5dp"
-               android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:textColorHint="@color/textcolor2"
-                android:textSize="17dp" />
+                android:textSize="17dp"
+                app:backgroundTint="@color/textcolor1" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -153,8 +155,8 @@
             android:id="@+id/select_route"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_below="@+id/radio_grp"
+            android:layout_marginTop="10dp"
             android:drawableLeft="@mipmap/m_location"
             android:drawablePadding="5dp"
             android:hint="PickUp Point"
@@ -195,7 +197,7 @@
 
         <Spinner
             android:id="@+id/des_location"
-            style="@style/Material.Widget.Spinner"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/current_location"

@@ -14,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -35,9 +36,10 @@ import java.net.SocketTimeoutException;
 public class Signup extends AppCompatActivity {
     AwesomeValidation mAwesomeValidation;
     Button register;
-    String strResponce;
-    EditText username, email, phoneno, password;
+    String strResponce, refferal_response;
+    EditText username, email, phoneno, password, refferal;
     RadioGroup gender;
+    ImageView refferal_btn;
     String gender_string = "male";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,13 @@ public class Signup extends AppCompatActivity {
                 }
             }
         });
+
+        refferal_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Refferal_Service().execute();
+            }
+        });
     }
 
     private void init() {
@@ -89,6 +98,8 @@ public class Signup extends AppCompatActivity {
         password = (EditText) findViewById(R.id.activity_register_password);
         phoneno = (EditText) findViewById(R.id.activity_register_password);
         gender = (RadioGroup) findViewById(R.id.radio_grp);
+        refferal_btn = (ImageView) findViewById(R.id.send);
+        refferal = (EditText) findViewById(R.id.activity_residence_add);
     }
 
     private void savePropData() {
@@ -150,6 +161,35 @@ public class Signup extends AppCompatActivity {
         }
     }
 
+    private void refferal_code() {
+        try {
+            SoapObject request = new SoapObject("http://tempuri.org/", "checkReferalCode");
+
+
+            PropertyInfo refer = new PropertyInfo();
+            refer.setType(android.R.string.class);
+            refer.setName("referralcode");
+            refer.setValue(refferal.getText().toString());
+            request.addProperty(refer);
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+            envelope.setOutputSoapObject(request);
+            HttpTransportSE androidHttpTransport =
+                    new HttpTransportSE("http://sales.meribus.com/Service1.svc", 5000);
+            androidHttpTransport.debug = true;
+
+            androidHttpTransport.call("http://tempuri.org/IService1/checkReferalCode", envelope);
+            SoapPrimitive soapPrimitive = (SoapPrimitive) envelope.getResponse();
+
+            refferal_response = soapPrimitive.toString();
+            Log.e("TAG", "Soap primitive1" + refferal_response);
+        } catch (SocketTimeoutException e) {
+
+        } catch (Exception e) {
+            Log.e("TAG", "Soap Exception" + e.toString());
+        }
+    }
+
     private class Call_Service extends AsyncTask<String[], Void, String> {
         ProgressDialog progressDialog = new ProgressDialog(Signup.this);
         private Login activity;
@@ -179,9 +219,76 @@ public class Signup extends AppCompatActivity {
 
             try {
                 if (s.contains("Data Insert Succesfully")) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
-                    dialog.setMessage("Register Succesfully, Please Login.");
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(Signup.this);
                     dialog.setTitle("Register");
+                    dialog.setMessage("Register Succesfully, Please Login.");
+
+                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(Signup.this, Login.class);
+                            startActivity(intent);
+                            dialog.dismiss();
+                            finish();
+                        }
+                    });
+                    dialog.show();
+
+                } else {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
+                    dialog.setMessage("Something Went Wrong, Please Try Again.");
+                    dialog.setTitle("Register");
+                    dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            dialog.dismiss();
+
+                        }
+                    });
+                    dialog.show();
+                }
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class Refferal_Service extends AsyncTask<String[], Void, String> {
+        ProgressDialog progressDialog = new ProgressDialog(Signup.this);
+        private Login activity;
+        private String soapAction;
+        private String methodName;
+        private String paramsName;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage("Loading....");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String[]... params) {
+            refferal_code();
+            return refferal_response;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            //Log.e("resulttttt",s);
+            progressDialog.dismiss();
+
+            try {
+                if (s.contains("Data Insert Succesfully")) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(Signup.this);
+                    dialog.setTitle("Register");
+                    dialog.setMessage("Register Succesfully, Please Login.");
+
                     dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

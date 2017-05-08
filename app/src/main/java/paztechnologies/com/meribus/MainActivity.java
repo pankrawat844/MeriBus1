@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
+
         signin=(TextView)findViewById(R.id.signin);
         register=(TextView)findViewById(R.id.register);
 
